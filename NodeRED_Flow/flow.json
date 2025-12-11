@@ -1,0 +1,35 @@
+// Parse incoming JSON (string or object) and send 5 outputs:
+// 1 -> gauge (temp number)
+// 2 -> chart (temp number)
+// 3 -> text (LightRaw string)
+// 4 -> text (Light state string)
+// 5 -> text (Fan state string)
+
+var inMsg = msg.payload;
+
+// If payload is a string, try to parse it
+if (typeof inMsg === "string") {
+    try {
+        inMsg = JSON.parse(inMsg.trim());
+    } catch(err) {
+        // invalid JSON — drop message
+        return null;
+    }
+}
+
+// safe defaults
+var temp = Number(inMsg.temp || 0);
+var lightRaw = (inMsg.lightRaw !== undefined) ? inMsg.lightRaw : 0;
+var lightState = (inMsg.light !== undefined) ? inMsg.light : 0;
+var fanState = (inMsg.fan !== undefined) ? inMsg.fan : 0;
+
+// prepare outputs
+var out1 = { payload: temp }; // gauge
+var out2 = { payload: temp }; // chart
+var out3 = { payload: "LightRaw: " + lightRaw }; // text
+var out4 = { payload: (lightState==1) ? "💡 Light: ON" : "💡 Light: OFF" }; // text
+var out5 = { payload: (fanState==1) ? "🌀 Fan: ON" : "🌀 Fan: OFF" }; // text
+
+return [out1, out2, out3, out4, out5];
+
+
