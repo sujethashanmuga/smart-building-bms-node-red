@@ -48,7 +48,9 @@ Software Stack
   Node-RED (Dashboard Nodes)
   JSON Data Handling
   Real-time visualization
+  
 How to Run the Project
+  
   1️⃣ Clone this repository:
   git clone https://github.com/yourusername/smart-building-bms-node-red.git
 
