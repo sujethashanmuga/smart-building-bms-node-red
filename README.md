@@ -65,14 +65,14 @@ How to Run the Project
 View dashboard at:
 👉 http://localhost:1880/ui
 
-Applications
+Applications:
   Smart Homes
   Hotels & Commercial Buildings
   Industrial Automation
   Energy-efficient BMS Systems
   IoT Prototyping & Research
 
-Skills Demonstrated
+Skills Demonstrated:
     IoT System Design
     Sensor Integration
     Automation Logic
